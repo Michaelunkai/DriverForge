@@ -136,6 +136,16 @@ pub fn build_dotnet(channels: &[(String, String, bool)], installed: &[String]) -
     out
 }
 
+/// Extract WindowsDesktop.App versions from `dotnet --list-runtimes` output.
+pub fn parse_list_runtimes(out: &str) -> Vec<String> {
+    out.lines()
+        .filter_map(|l| {
+            let mut it = l.split_whitespace();
+            (it.next() == Some("Microsoft.WindowsDesktop.App")).then(|| it.next().map(String::from)).flatten()
+        })
+        .collect()
+}
+
 #[cfg(windows)]
 fn dotnet_installed() -> Vec<String> {
     use winreg::enums::{HKEY_LOCAL_MACHINE, KEY_READ, KEY_WOW64_64KEY};
@@ -170,14 +180,7 @@ fn dotnet_installed() -> Vec<String> {
         cmd.creation_flags(0x0800_0000);
     }
     if let Ok(o) = cmd.output() {
-        for l in String::from_utf8_lossy(&o.stdout).lines() {
-            let mut it = l.split_whitespace();
-            if it.next() == Some("Microsoft.WindowsDesktop.App") {
-                if let Some(ver) = it.next() {
-                    v.push(ver.to_string());
-                }
-            }
-        }
+        v.extend(parse_list_runtimes(&String::from_utf8_lossy(&o.stdout)));
     }
     v.sort();
     v.dedup();
@@ -287,6 +290,11 @@ mod tests {
             {"channel-version":"10.0","latest-runtime":"10.0.14","support-phase":"active","release-type":"lts"},
             {"channel-version":"8.0","latest-runtime":"8.0.33","support-phase":"maintenance","release-type":"lts"},
             {"channel-version":"6.0","latest-runtime":"6.0.36","support-phase":"eol","release-type":"lts"}]})
+    }
+    #[test]
+    fn list_runtimes_parsed() {
+        let o = "Microsoft.AspNetCore.App 10.0.14 [x]\r\nMicrosoft.WindowsDesktop.App 10.0.14 [C:/dotnet]\n";
+        assert_eq!(parse_list_runtimes(o), vec!["10.0.14".to_string()]);
     }
     #[test]
     fn dotnet_index_filters_preview_and_eol() {
