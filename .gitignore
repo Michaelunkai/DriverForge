@@ -1,0 +1,6 @@
+target/
+.targets/
+.fx/
+.multiagents/
+*.log
+.mcp.json

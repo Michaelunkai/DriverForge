@@ -1,0 +1,1397 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    
+    
+<noscript>
+    <div id="thanksNoScripting" visible="true">
+        <div id="thanksNoScriptingIntro" class="textContentPageBottomSpacer">
+            <span id="ctl00_catalogHead_noscript_textScriptingError" class="contentTextItemSpacerNoBreak"><span class="contentTextInline">To obtain updates from this website, scripting must be enabled.</span></span>
+        </div>
+        <div id="thanksNoScriptingHowTo" class="textContentPageBottomSpacer">
+            <span id="ctl00_catalogHead_noscript_textScriptingIntroError" class="contentTextItemSpacerNoBreak">To use this site to find and download updates, you need to change your security settings to allow ActiveX controls and active scripting. To get updates but allow your security settings to continue blocking potentially harmful ActiveX controls and scripting from other sites, make this site a trusted website:</span>
+            <div id="listNoScriptDiv" class="listOrdered">
+                <span class="listItem">
+                    <span id="ctl00_catalogHead_noscript_textScriptingHowToError" class="contentTextItemSpacerNoBreak">In Internet Explorer, click <span class="contentTextInline">Tools</span>, and then click <span class="contentTextInline">Internet Options</span>.</span>
+                </span><span class="listItem">
+                    <span id="ctl00_catalogHead_noscript_textScriptingHowToError2" class="contentTextItemSpacerNoBreak">On the <span class="contentTextInline">Security</span> tab, click the <span class="contentTextInline">Trusted Sites</span> icon. </span>
+                </span><span class="listItem">
+                    <span id="ctl00_catalogHead_noscript_textScriptingHowToError3" class="contentTextItemSpacerNoBreak">Click <span class="contentTextInline">Sites</span> and then add these website addresses one at a time to the list:
+You can only add one address at a time and you must click <span class="contentTextInline">Add</span> after each one:</span>
+                </span>
+                <div id="listSubNoScriptDiv" class="listUnOrderedSub">
+                    <span class="listItem">
+                        <span id="ctl00_catalogHead_noscript_textScriptingHowToError3a" class="contentTextItemSpacerNoBreak">http://*.update.microsoft.com </span>
+                    </span><span class="listItem">
+                        <span id="ctl00_catalogHead_noscript_textScriptingHowToError3b" class="contentTextItemSpacerNoBreak">https://*.update.microsoft.com </span>
+                    </span><span class="listItem">
+                        <span id="ctl00_catalogHead_noscript_textScriptingHowToError3c" class="contentTextItemSpacerNoBreak">http://download.windowsupdate.com</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div id="thanksNoScriptingNote" class="textContentPageBottomSpacer">
+            <span id="ctl00_catalogHead_noscript_textScriptingNoteError" class="contentTextItemSpacerNoBreak"><span class="contentTextInline">Note:</span> 
+ You might have to uncheck the <span class="contentTextInline"> Require server verification (https:) for all sites in the zone </span> option to enter all the addresses.</span>
+        </div>
+        <div id="errorNoScriptHelpOptions" class="listUnOrdered">
+            <span class="listItem"><a href="Faq.aspx" class="footerLink" >
+                <span id="ctl00_catalogHead_noscript_textSelfHelpOption1" class="contentTextItemSpacerNoBreak">Frequently Asked Questions</span>
+            </a></span><span class="listItem"><a href="Support.aspx" class="footerLink">
+                <span id="ctl00_catalogHead_noscript_textSelfHelpOption2" class="contentTextItemSpacerNoBreak">Help and Support</span>
+            </a></span>
+        </div>
+    </div>
+</noscript>
+  
+    
+
+    <title>Microsoft Update Catalog</title>
+    <link rel="stylesheet" type="text/css" href="Style/catalog.css" />
+    <link rel="search" type="application/opensearchdescription+xml" href="OpenSearch.aspx" 
+        title='Microsoft Update Catalog' />
+    <!-- <script type="text/javascript">
+	function supressError(message, url, line)
+	{
+	  var re = /^function\s*([^(]*)\s*\(([^)]*)\)/;
+	  var matches = null;
+	  if (arguments.caller != null) {
+	    matches = re.exec(arguments.caller.callee);
+	  }
+	  var argArray = new Array();
+	  var fName = 'unknown';
+	  if(matches)
+	  {
+	    if(matches[1] && matches[1].toString().length > 0)
+	       fName = matches[1].toString();
+	    if(matches[2] && matches[2].toString().length > 0)
+	    {
+	       var cleanMatches = new String(matches[2]).replace(/\s*/g,'');
+	       argArray = cleanMatches.split(',');
+	    }
+	  }
+	  var args = (argArray.length>0)?'':'none';
+	  for(var i=0; i<argArray.length; i++)
+	  {
+	    args += ((args=='')?'':', ') + argArray[i] + '(' + typeof(arguments.caller[i]) + '):';
+	    args += arguments.caller[i];
+	  }
+	  if(typeof(logger) != typeof(undefined) && logger != null)
+	    logger.log(logger.logLevelFatal, 'JavaScript Error: MESSAGE='+ message + '. URL=' + url + '. LINE='+ line + '. FUNCTION_NAME=' + fName +'. ARGUMENTS=' + args);
+	  else if(typeof(console) != typeof(undefined) && console != null)
+	    console.log('JavaScript Error: MESSAGE='+ message + '. URL=' + url + '. LINE='+ line + '. FUNCTION_NAME=' + fName +'. ARGUMENTS=' + args);
+	  var location = window.location.href.toLowerCase();
+	  if(location.indexOf('Error.aspx'.toLowerCase()) == -1)
+	    window.location.href = 'Error.aspx'  + '?id=' + Microsoft.UpdateServices.Catalog.Constants.ErrorScriptError;
+	  return true;
+	}
+	window.onerror = supressError;
+</script> -->
+    <script type="text/javascript">
+        var internetExplorer = false;
+        var basket;
+
+        function setBasketCount() {
+            basket.syncCache();
+            var basketCount = basket.get_count();
+            headerBasketCount.innerText = basketCount;
+            if (basketCount > 0) {
+                basketControl.className = "basketControl";
+                basketImageSpan.className = "basketControl";
+            }
+            else {
+                basketControl.className = "basketControlInActive";
+                basketImageSpan.className = "basketControlInActive";
+            }
+        }
+
+        function goToBasket() {
+            var updateIDs = getUpdateIds(basket.getAllUpdates());
+            if (updateIDs.replace(/^\s+|\s+$/g, '') == "") return;
+            basketForm.updateIDs.value = updateIDs;
+            var qs = new Microsoft.UpdateServices.Catalog.QueryString(window.location.search);
+            basketForm.action = Microsoft.UpdateServices.Catalog.Constants.PageViewBasket + qs.appendErrorsQS();
+            basketForm.submit();
+            return false;
+        }
+
+        function getUpdateIds(aUpdateIds) {
+            var basketUpdateIds = "";
+            for (i = 0; i < aUpdateIds.length; i++) {
+                basketUpdateIds += aUpdateIds[i].get_uid() + ",";
+            }
+
+            return basketUpdateIds;
+        }
+
+        function goToDetails(updateID) {
+            var windowName = updateID.replace(/-/g, Microsoft.UpdateServices.Catalog.Constants.EmptyString);
+            var qs = new Microsoft.UpdateServices.Catalog.QueryString(window.location.search);
+            var detailsDialog = window.open(Microsoft.UpdateServices.Catalog.Constants.PageScopedViewInline + qs.appendErrorsQS("?updateid=" + updateID),
+                                            windowName, 'height=560,width=740,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=1 ');
+            if (detailsDialog == null) {
+                detailsPopup.style.display = "block";
+            }
+            else {
+                detailsDialog.focus();
+            }
+            return false;
+        }
+
+        function propogateBasketState(url) {
+            var qs = new Microsoft.UpdateServices.Catalog.QueryString(window.location.search);
+            basketForm.action = url + qs.appendErrorsQS();
+            basketForm.submit();
+            event.cancelBubble = true;
+            event.returnValue = false;
+            return false;
+        }
+
+        function createMasterPageComponents(prerequisiteChecksPassed) {
+            var searchLink = $get('searchButtonLink');
+            var basketLink = $get('basketControl');
+            var basketImage = $get('basketImageSpan');
+            var searchBox = $get('ctl00$searchTextBox'.replace('$', '_'));
+            var masterContext = null;
+
+            if (navigator.language == "fr" || navigator.language == "fr-FR") {
+                document.getElementById("supportLinkBoxFrench").style.visibility = "visible";
+            }
+
+            else
+            {
+                document.getElementById("supportLinkBoxFrench").style.visibility = "hidden";
+            }
+
+            //separating out code block which requires all prerequisites checks to pass            
+            if (prerequisiteChecksPassed) {
+                var searchTextBox = new Microsoft.UpdateServices.Catalog.UI.SearchTextBox($get('ctl00$searchTextBox'.replace('$', '_')),
+                    'start your search...',
+                    searchBox.value,
+                    searchLink,
+                    'defaultSearchText'
+                    );
+                searchTextBox.initialize();
+
+                if (internetExplorer) {
+                    $addHandler(basketLink, "click", goToBasket);
+                    $addHandler(basketImage, "click", goToBasket);
+                    $addHandler(window, "focus", setBasketCount);
+                }
+
+                $addHandler(searchLink, "click", function (event) {
+                    event = event || window.event;
+                    event.cancelBubble = true;
+                    event.returnValue = false;
+                    var searchText = searchTextBox.get_searchText();
+                    if (searchText.replace(/^\s+|\s+$/g, '') == "") return false;
+                    var qs = new Microsoft.UpdateServices.Catalog.QueryString(window.location.search);
+                    var searchUrl = 'Search.aspx' + qs.appendErrorsQS('?q=' + encodeURIComponent(searchText));
+                    basketForm.action = searchUrl;
+                    basketForm.submit();
+                    return false;
+                });
+
+                masterContext = new Microsoft.UpdateServices.Catalog.UI.MasterPageContext(basketForm);
+                masterContext.initialize();
+
+                if (internetExplorer) {
+                    basket = Microsoft.UpdateServices.Catalog.DownloadBasket.get_instance();
+                    basket.contentChanged.add(setBasketCount);
+                    setBasketCount();
+                }
+
+                //cancel the enter key click for the mainform so it will not do a postback
+                var mainFormElement = $get('aspnetForm');
+                mainFormElement.onkeydown = function (event) {
+                    event = event || window.event;
+                    if ((event.which || event.keyCode) == Microsoft.UpdateServices.Catalog.Constants.EnterButtonKeyCode && (event.target || event.srcElement).id == 'ctl00$searchTextBox'.replace('$', '_')) {
+                        event.cancelBubble = true;
+                        event.returnValue = false;
+                        return false;
+                    }
+                    return true;
+                }
+
+                if (Microsoft.UpdateServices.Catalog.Constants.DownloadInformation != 'search') {
+                    window.focus();
+                    (searchTextBox.get_element()).focus();
+                }
+            }
+
+            return masterContext;
+        }
+    </script>
+
+</head>
+
+<body id="ltr"><div class="noDisplay" id="outerDivID">   
+    <form id="basketForm" method ="post" action="">
+        <input type="hidden" id="updateIDs" name="updateIDs" />
+        <input type="hidden" id="updateIDsBlockedForImport" name="updateIDsBlockedForImport" />        
+        <input type="hidden" id="contentImport" name="contentImport" value=""/>
+        <input type="hidden" id="sku" name="sku" value="" />
+        <input type="hidden" id="serverName" name="serverName" value=""/>
+        <input type="hidden" id="ssl" name="ssl" value=""/>
+        <input type="hidden" id="portNumber" name="portNumber" value=""/>
+        <input type="hidden" id="version" name="version" value=""/>    
+        <input type="hidden" id="protocol" name="protocol" value=""/>                
+    </form>
+   <form method="post" action="./Search.aspx?q=PCI%5cVEN_10EC%26DEV_8125" id="aspnetForm">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZHCf1D6zgk2q_58BGqIWuJN-lKg8dsHbxwKfSzpkyaX5zW1CAvTTfaduiTj6wZcl2g2&amp;t=639285191681971250" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=uHIkleVeDJf4xS50Krz-yAgy8LL0CJ9oKJ_5AaNtvwWzCfgXflBeAcm84BRgWUOXu-jPJrtYtCAmTNrvAG9YMAXyn-pFsK-8F4XDZv3cZMr6gCxic0hF5lMu7wkVcXwa4t6or7nCUz_Ube3hrXvUaMucgYHB5NUz0P5vrPNxJQY1&amp;t=ffffffffbec1863d" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=Jw6tUGWnA15YEa3ai3FadOp8_ii8zpp8gYEZ213foGp7m-kExPjL-bVfmn51m0qgHjvgkrrnwwRnBjHssd28akCYhrX-lX-3L-XWa5Wt2639l1zwle6CIEye1tUDjWvErdJOhyJal_pts5zCD72-9ZASESvDaYs33xC0-AtakXw1&amp;t=ffffffffbec1863d" type="text/javascript"></script>
+<script src="SiteConstants.aspx?6" type="text/javascript"></script>
+<script src="Script/CommonTypes.js?6" type="text/javascript"></script>
+<script src="Script/DownloadBasket.js?6" type="text/javascript"></script>
+<script src="Script/MasterComponents.js?6" type="text/javascript"></script>
+<script src="Script/Search.js?6" type="text/javascript"></script>
+<script src="Script/CommonScroll.js?6" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="BBBC20B8" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="w9ztX2XP3B0GnDV9s8w3lVKU28SS9iBwssuPYMrnBea3Itmd1P68LEJ7lcOcnP29is96z/Ci5H5ObMm2ZEus3nT+ZOW1fDsg6IDUrW6xekTJLXh6+YvINYMW3I0ke5Yv/VMJry+UJIAvrzSBcCiDq0lCGJB4aD69lfUITea3LyAwDNSolrb1acftfuxNeX9bnZhgBpRC9k36pP7zgzbGwYZjj0WDqd8RidPKgGBqTWvf8F9sMnP5nms/15k5fPDxVuShnf5bNj19wjBtAVt+bcx1qgxII3vludyI9OGXgdw=" />
+</div>
+   <div id="mainBoxMaster" >
+        <table id="layoutTable" cellpadding="0" cellspacing="0" border="0" style="height:100%" role="presentation">
+            <tr style="height:90%" valign="top">
+                <td>
+                    <div id="mainBox">
+                        <table id="headerBox" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                            <tr>
+                                <td id="headerLinkBox" rowspan="2" role="banner">
+                                    <a class="masterHomeLink" href="home.aspx" onclick="propogateBasketState('home.aspx')"><div id="masterFormTitle" class="masterBodyTitle headerNavLink"><span id="ctl00_textTitleMaster">Microsoft<span class="titleTrademark">&reg;</span>Update Catalog</span></div></a>
+                                    <a href="Faq.aspx" id="faqNavLink" onclick="propogateBasketState('Faq.aspx')" class="headerNavLink"><span id="ctl00_faqResource">FAQ</span></a>|<a href="Support.aspx" id="helpNavLink" onclick="propogateBasketState('Support.aspx')" class="headerNavLink"><span id="ctl00_helpResource">help</span></a>
+                                </td>
+                                <td align="right" valign="bottom" id="rightTopHeaderBox" role="search">
+                                    <table align="right" cellpadding="0" cellspacing="0" border="0" id="searchBox" role="presentation">
+                                        <tr>
+                                            <td id="searchGlowTopBox" colspan="4"><img id="searchGlowPart1" src="Images/bg_SearchGlow_part1.gif" alt="" /><img id="searchGlowPart3" src="Images/bg_SearchGlow_part3.gif" alt="" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td id="searchGlowPart8bBox"><img src="Images/bg_SearchGlow_part8b.gif" id="ctl00_searchGlowPart8b" alt="" /></td>
+                                            <td rowspan="2" id="searchTextboxBox"><input name="ctl00$searchTextBox" type="text" id="ctl00_searchTextBox" aria-labelledby="searchBox" class="searchTextBox" maxlength="100" value="PCI\VEN_10EC&amp;DEV_8125" /></td>
+                                            <td rowspan="2" id="searchButtonBox">
+                                                <input id="searchButtonLink" class="transparentButtonWithNoBorder" type="button" value='Search' />
+                                            </td>
+                                            <td id="searchGlowPart4aBox"><img src="Images/bg_SearchGlow_part4a.gif" id="ctl00_searchGlowPart4a" alt="" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td id="searchGlowPart8aBox"><img src="Images/bg_SearchGlow_part8a.gif" id="ctl00_searchGlowPart8a" alt="" /></td>
+                                            <td id="searchGlowPart4bBox"><img src="Images/bg_SearchGlow_part4b.gif" id="ctl00_searchGlowPart4b" alt="" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td id="searchGlowBottomBox" colspan="4"><img id="searchGlowPart7" src="Images/bg_SearchGlow_part7.gif" alt="" /><img id="searchGlowPart5" src="Images/bg_SearchGlow_part5.gif" alt="" /></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="bottom" id="rightBottomHeaderBox">
+                                    <table align="right" cellpadding="0" cellspacing="0" border="0" id="headerStatusBox" role="presentation">
+                                        
+                                            <tr style="display: none">
+                                        
+                                            <td id="basketBox"><a id="basketControl" href="javascript:void(0);" class="basketControlInActive">view basket (<span id="headerBasketCount">0</span>)</a></td>
+                                            <td id="basketImage"><a id="basketImageSpan" href="javascript:void(0);" class="basketControlInActive" ><img src="Images/decor_Basket.jpg" border="0" alt="" /></a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <div id="contentBox" role="main">
+                            
+    <script type="text/javascript">
+	function checkOSVersion()
+	{
+	    return true;
+	}
+	function checkValidBrowserOnWin10Plus()
+	{
+	    return true;
+	}
+	function getRedirectURLAfterControlInstallation(currentURL)
+	{
+	    var redirectURL=null;
+	    var location = window.location.href.toLowerCase();
+	    if (location.indexOf(Microsoft.UpdateServices.Catalog.Constants.PageSearch.toLowerCase()) != -1 ||
+	        location.indexOf(Microsoft.UpdateServices.Catalog.Constants.PageScopedView.toLowerCase()) != -1 ||
+	        location.indexOf(Microsoft.UpdateServices.Catalog.Constants.PageScopedViewRedirect.toLowerCase()) != -1 ||
+	        location.indexOf(Microsoft.UpdateServices.Catalog.Constants.PageHome.toLowerCase()) != -1 ||
+	        location.indexOf(Microsoft.UpdateServices.Catalog.Constants.PageViewBasket.toLowerCase()) != -1 ||
+	        location.indexOf(Microsoft.UpdateServices.Catalog.Constants.PageDownloadInformation.toLowerCase()) != -1)
+	    {
+	         redirectURL = Microsoft.UpdateServices.Catalog.Constants.PageInstall;
+	         if (location.indexOf(Microsoft.UpdateServices.Catalog.Constants.PageViewBasket.toLowerCase())==-1 &&
+	             location.indexOf(Microsoft.UpdateServices.Catalog.Constants.PageDownloadInformation.toLowerCase())== -1) {
+	             if (window.location.search) {
+	                  redirectURL +=  window.location.search;
+	                  redirectURL += '&' + Microsoft.UpdateServices.Catalog.Constants.QueryStringReferringPage + '=' + 'Search.aspx';
+	             } else {
+	                  redirectURL+= '?' + Microsoft.UpdateServices.Catalog.Constants.QueryStringReferringPage + '=' + 'Search.aspx';
+	             }
+	         }
+	    } else {
+	         redirectURL = Microsoft.UpdateServices.Catalog.Constants.PageThanks +'?id='+Microsoft.UpdateServices.Catalog.Constants.ThanksControlNotInstalled;
+	    }
+	    return(redirectURL);
+	}
+	function checkActiveX()
+	{
+	    var activeXEnabled=true;
+	    try
+	    {
+	        var xmlDOM = new ActiveXObject('Msxml2.XMLHTTP');
+	    }
+	    catch(e)
+	    {
+	        activeXEnabled=false;
+	    }
+	    return activeXEnabled;
+	}
+	function checkCPU()
+	{
+	    var validCPU=false;
+	    var cpuClass = navigator.cpuClass.toLowerCase();
+	    if(Microsoft.UpdateServices.Catalog.Constants.x86 == cpuClass || Microsoft.UpdateServices.Catalog.Constants.x64 ==cpuClass)
+	    {
+	        validCPU=true;
+	    }
+	    return validCPU;
+	}
+	function checkControlInstalled()
+	{
+	    return true;
+	}
+	function checkUserDataAccess()
+	{
+	    var checkPassed=true;
+	    try
+	    {
+	        var storageElement = document.createElement("input");
+	        storageElement.type = "hidden";
+	        storageElement.style.behavior = "url(#default#userData)";
+	        storageElement.setAttribute('name','1');
+	        document.body.appendChild(storageElement);
+	        storageElement.save('StorageKey');
+	    }
+	    catch(e)
+	    {
+	        checkPassed=false;
+	    }
+	    return checkPassed;
+	}
+	function detectRedirectionCycle()
+	{
+	    var redirectionCycle=true;
+	    if(window.location.href.indexOf('Thanks.aspx') == -1)
+	    {
+	        redirectionCycle=false;
+	    }
+	    return(redirectionCycle);
+	}
+	function makePageVisible(){
+	   var elt = document.getElementById("outerDivID");
+	   if (elt)
+	   {
+	       elt.style.display = "block";
+	   }
+	   var bodyElt=document.getElementsByTagName("body")[0];
+	   if(bodyElt)
+	   {
+	       bodyElt.className="mainBody";
+	   }
+	}
+	function clientPrereqChecks()
+	{
+	    var osVersionCheckPassed=false;
+	    var validBrowserOnWin10PlusCheckPassed=false;
+	    var cpuCheckPassed=false;
+	    var userDataCheckPassed=false;
+	    var activeXCheckPassed=false;
+	    var controlInstalledCheckPassed=false;
+	    osVersionCheckPassed=checkOSVersion();
+	    if(osVersionCheckPassed) {
+	        validBrowserOnWin10PlusCheckPassed=checkValidBrowserOnWin10Plus();
+	    }
+	    if(validBrowserOnWin10PlusCheckPassed)
+	    {
+	        cpuCheckPassed=checkCPU();
+	    }
+	    if(cpuCheckPassed)
+	    {
+	        userDataCheckPassed=checkUserDataAccess();
+	    }
+	    if(userDataCheckPassed)
+	    {
+	        activeXCheckPassed=checkActiveX();
+	    }
+	    if(activeXCheckPassed)
+	    {
+	        controlInstalledCheckPassed=checkControlInstalled();
+	    }
+	    var checksPassed=osVersionCheckPassed && validBrowserOnWin10PlusCheckPassed && userDataCheckPassed && cpuCheckPassed && controlInstalledCheckPassed && activeXCheckPassed;
+	    var canRedirect=!checksPassed && !detectRedirectionCycle();
+	if(canRedirect)
+	{
+	    if(!osVersionCheckPassed)
+	    {
+	         window.location.href = 'Thanks.aspx' + '?id=' + Microsoft.UpdateServices.Catalog.Constants.ThanksUnsupportedOs;
+	    }
+	    else if(!validBrowserOnWin10PlusCheckPassed)
+	    {
+	         window.location.href = 'Thanks.aspx' + '?id=' + Microsoft.UpdateServices.Catalog.Constants.ThanksUnsupportedBrowser;
+	    }
+	    else if(!cpuCheckPassed)
+	    {
+	         window.location.href = 'Thanks.aspx' + '?id=' + Microsoft.UpdateServices.Catalog.Constants.ThanksUnsupportedCPU;
+	    }
+	    else if(!userDataCheckPassed)
+	    {
+	        window.location.href = 'Thanks.aspx' + '?id=' + Microsoft.UpdateServices.Catalog.Constants.ThanksUserDataDisabled;
+	    }
+	    else if(!activeXCheckPassed)
+	    {
+	          window.location.href = 'Thanks.aspx' + '?id=' + Microsoft.UpdateServices.Catalog.Constants.ThanksNoActiveX;
+	    }
+	    else if(!controlInstalledCheckPassed)
+	    {
+	          window.location.href = getRedirectURLAfterControlInstallation(window.location.href);
+	    }
+	}
+	else
+	{
+	    makePageVisible();
+	}
+	return checksPassed;
+	}
+
+</script>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$catalogBody$scriptManager', 'aspnetForm', [], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+
+    <link rel="stylesheet" type="text/css" href="Style/Search.css" />
+    <link rel="stylesheet" type="text/css" href="Style/CommonStyle.css" />
+
+    <script type="text/javascript" language="javascript">
+        var internetExplorer = false;
+        var searchComponent;
+
+        ///<summary>
+        ///     This function is called automatically by ASP.NET AJAX framework when the page finishes loading
+        ///</summary>
+        function pageLoad() {
+            var clientChecksPassed = false;
+            if (internetExplorer) {
+                clientChecksPassed = clientPrereqChecks();
+            } else {
+                makePageVisible();
+                clientChecksPassed = true;
+            }
+
+            if (clientChecksPassed == false) {
+                return;
+            }
+
+            if (internetExplorer) {
+                var clientValidator = new Microsoft.UpdateServices.Catalog.UI.ClientValidator($get('MuCatWebCtl'));
+                if ($get('MuCatWebCtl').object != null) {
+                    if (!clientValidator.checkWsusAPI($get('sku').value))
+                        return;
+                }
+            }
+
+            // Get the MasterPageContext object
+            var masterPageContext = createMasterPageComponents(true);
+            if (masterPageContext == null) {
+                return;
+            }
+
+            var updateDiv = $get('tableContainer');
+                        
+            // Attach onclick events to all the buttons in the data grid.
+            // The event handler for add all/remove all is different from the 
+            // remaining buttons.
+            var inputElments = updateDiv.getElementsByTagName("input"); 
+            var addRemoveButtons = new Array();
+            var sizeElements = new Array();
+            var elemtCount = 0;
+
+            for (i = 0; i < inputElments.length; i++) {
+                if (inputElments[i].id == "allButton" || inputElments[i].type != "button") {
+                    continue;
+                }
+
+                addRemoveButtons.push(inputElments[i]);
+                sizeElements[elemtCount] = new Object();
+                sizeElements[elemtCount].pageElement = $get(inputElments[i].id + "_Size");
+                sizeElements[elemtCount++].originalSize = $get(inputElments[i].id + "_originalSize").innerText;
+                attachEventToInput(inputElments[i], masterPageContext);
+            }
+            var headerButtons = updateDiv.querySelectorAll("th a");
+
+            for (headerButton of headerButtons) {
+                attachSortEvent(headerButton);
+            }
+            
+            var allButton = null;
+            if (internetExplorer) {
+                allButton = $get('allButton');
+                if (typeof (allButton) != typeof (Microsoft.UpdateServices.Catalog.Constants.UndefinedValue) && allButton != null) {
+                    allButton.attachEvent('onclick', function () { searchComponent.allBasket(); });
+                }
+            }
+
+            $addHandler(window, "focus", function () { searchComponent.initialize(); });
+
+            searchComponent = new Microsoft.UpdateServices.Catalog.UI.Search(updateDiv,
+                addRemoveButtons,
+                allButton,
+                addButtonText.innerText,
+                addAllButtonText.innerText,
+                removeButtonText.innerText,
+                removeAllButtonText.innerText,
+                sizeElements,
+                internetExplorer);
+
+            function updateSortOrderImage() {
+                var updateDiv = $get('tableContainer');
+                if (updateDiv) {
+                    let url = new URL(window.location.href);
+                    let sortCol = url.searchParams.get(SORT_COLUMN);
+                    if (sortCol) {
+                        let sortDir = url.searchParams.get(SORT_DIR) || "";
+                        let headerButtons = updateDiv.querySelectorAll("th a");
+                        if (headerButtons && headerButtons.length > 0) {
+                            let currentSortCol = headerButtons.entries().find(function (item) {
+                                return item[1].dataset.commandname.toLowerCase() === sortCol.toLowerCase();
+                            });
+                            currentSortCol[1].lastElementChild.src = `Images/button_Sort${sortDir.toLowerCase() === "asc" ? "Ascending" : "Descending"}Arrow.gif`;
+                        }
+                    }
+                }
+            }
+            updateSortOrderImage();
+        }
+        
+        ///<summary>
+        ///     Attaches an event handler to an input element
+        ///</summary>
+        function attachEventToInput(inputElement, masterContext) {
+            // If in IE, then the update will be added to the basket, otherwise the download dialog will be opened.
+            if (internetExplorer) {
+                inputElement.attachEvent('onclick', function () {
+                    var sizeElement = $get(inputElement.id + "_size");
+                    var originalSize = $get(inputElement.id + "_originalSize").innerText;
+                    searchComponent.manageBasket(inputElement, inputElement.id, "true", sizeElement, originalSize);
+                });
+            } else {
+                $addHandler(inputElement, "click", function () {
+                    var updates = inputElement.id;
+                    var serializedUpdatesList = Sys.Serialization.JavaScriptSerializer.serialize([new Microsoft.UpdateServices.Catalog.Update(updates)]);
+
+                    masterContext.get_basketForm().updateIDs.value = serializedUpdatesList;
+                    masterContext.get_basketForm().sku.value = Microsoft.UpdateServices.Catalog.Constants.EmptyString;
+
+                    var qs = new Microsoft.UpdateServices.Catalog.QueryString(window.location.search);
+                    var downloadDialog = window.open(Microsoft.UpdateServices.Catalog.Constants.PageDownloadDialog + qs.appendErrorsQS(), Microsoft.UpdateServices.Catalog.Constants.EmptyString, 'height=460,width=640,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=1 ');
+                });
+            }
+        }
+        
+        var titleHeaderButton = $get('titleHeaderLink');
+        function changeSortDir(currentDir) {
+            if (currentDir === "asc") {
+                return "desc";
+            }
+            return "asc";
+        }
+
+        const SORT_COLUMN = Microsoft.UpdateServices.Catalog.Constants.QueryStringSortColumn;
+        const SORT_DIR = Microsoft.UpdateServices.Catalog.Constants.QueryStringSortDirection;
+        const PAGE_INDEX = Microsoft.UpdateServices.Catalog.Constants.QueryStringPageIndex;
+        ///<summary>
+        ///Attaches sort event to target column header. Make sure the header has data-columnName attribute.
+        ///</summary>
+        function attachSortEvent(target) {
+            if (target) {
+                $addHandler(target, "click", function (e) {
+                    e.preventDefault();
+                    var url = new URL(window.location.href);
+                    var alreadySorted = url.searchParams.get(SORT_COLUMN);
+                    var currentSortDir = url.searchParams.get(SORT_DIR);
+                    var sortDir = alreadySorted ? changeSortDir(currentSortDir) : "asc";
+                    var sortColumn = target.dataset.commandname;
+                    url.searchParams.set(SORT_COLUMN, sortColumn);
+                    url.searchParams.set(SORT_DIR, sortDir);
+                    location.assign(url.search);
+                    return false;
+                });
+            }
+        }
+
+        function detailsHandler(updateID)
+        {
+            var inputElement = $get(updateID);
+            if(inputElement != null)
+            {
+                var sizeElement = $get(updateID + "_size");
+                var originalSize = $get(updateID + "_originalSize").innerText;
+                searchComponent.manageBasket(inputElement, updateID, "false",sizeElement,originalSize);
+            }
+            setBasketCount();
+        }
+
+        /**
+            * Below function are related to page change events handling
+         */
+        function getTotalPages() {
+            let div = document.getElementById('numberOfUpdates');
+            if (div) {
+                let labels = div.getElementsByTagName('span');
+                if (labels && labels.length > 1) {
+                    let updatesText = labels[1].innerText;
+                    if (updatesText && updatesText.length > 0) {
+                        let spaceLastIndex = updatesText.lastIndexOf(" ");
+                        let pageCountStr = updatesText.substring(spaceLastIndex + 1, updatesText.length - 1);
+                        pageCountStr = pageCountStr || "0";
+                        return parseInt(pageCountStr);
+                    }
+                }
+            }
+            return 0;
+        }
+        
+        let pageCount = getTotalPages();
+
+        function handlePageChange(e) {
+            
+            let target = e.target || e;
+            if (target) {
+                let pageChangeType = target.dataset.commandname;
+                if (pageChangeType) {
+                    pageChangeType = pageChangeType.toLowerCase();
+                    var url = new URL(window.location.href);
+                    var currentPageIndexString = url.searchParams.get(PAGE_INDEX);
+                    var pageIndex = 0;
+                    if (currentPageIndexString && !isNaN(currentPageIndexString)) {
+                        var currentPageIndex = parseInt(currentPageIndexString);
+                        if (currentPageIndex >= 0)
+                            pageIndex = currentPageIndex;
+                    }
+
+                    if (pageCount == 0) {
+                        pageCount = getTotalPages();
+                    }
+
+                    if (pageChangeType === "next" && pageIndex < pageCount) {
+                        pageIndex++;
+                    }
+                    if (pageChangeType === "prev" && pageIndex > 0) {
+                        pageIndex--;
+                    }
+
+                    url.searchParams.set(PAGE_INDEX, pageIndex);
+                    location.assign(url.search);
+                    return false;
+                } else {
+                    throw Error("No data-commandName attribute found for paging button.");
+                }
+            }
+        }
+        function bindPageChangeEvents() {
+            var contentSection = $get('contentSection');
+            var navLinksTd = contentSection.querySelector('table.resultsNavigation td.textAlignRight');
+            var links = navLinksTd.querySelectorAll('a');
+            var pagingButtons = navLinksTd.querySelectorAll('a, input[type="image"]');
+            for (var btn of pagingButtons) {
+                $addHandler(btn, "click", handlePageChange);
+            }
+        }
+
+    </script>
+
+    <div id="contentSection">
+        <div class="textSubHeadingColor textBold" id="searchSubHeading">
+            <table id="ctl00_catalogBody_ResultsHeaderTable" role="presentation">
+	<tr>
+		<td>
+                        
+                        
+                        <span id="ctl00_catalogBody_searchString">"PCI\VEN_10EC&amp;DEV_8125"</span>
+                    </td>
+	</tr>
+</table>
+
+        </div>
+        
+        <div id="ctl00_catalogBody_moreResults" class="moreReults" role="status">
+            <span id="ctl00_catalogBody_textMoreResults">Your search resulted in over 1000 matching updates.  Only the first 1000 are returned.  To narrow your search, try adding additional keywords to your search terms.</span>
+        </div>
+        <table id="ctl00_catalogBody_navigationLinks" cellpadding="0" cellspacing="0" border="0" class="resultsNavigation">
+	<tr>
+		<td>
+                    <div id="numberOfUpdates" role="status">
+                        <span id="ctl00_catalogBody_labelUpdates_Separator">Updates:</span>
+                        <span id="ctl00_catalogBody_searchDuration">1 - 25 of 1000 (page 1 of 40)</span><br />
+                    </div>
+                </td>
+		<td valign="middle" class="textAlignRight" role="presentation">
+                    <span id="ctl00_catalogBody_prevPage">
+                        <img src="Images/button_PreviousArrow_disabled.gif" id="ctl00_catalogBody_prevImage" alt="" align="middle" />
+                        <span>Previous</span>
+                    </span><span>|</span> <span id="ctl00_catalogBody_nextPageLink">
+                        <a onclick="handlePageChange(this); return false;" id="ctl00_catalogBody_nextPageLinkText" class="contentTextItemSpacerNoBreakLink" data-commandName="next" href="javascript:__doPostBack(&#39;ctl00$catalogBody$nextPageLinkText&#39;,&#39;&#39;)"><span>Next</span></a>
+                        <input type="image" name="ctl00$catalogBody$nextPageLinkButton" id="ctl00_catalogBody_nextPageLinkButton" tabindex="-1" alt="Next Arrow" data-commandName="next" src="Images/button_NextArrow.gif" align="middle" onclick="handlePageChange(this); return false;" />
+                    </span>
+                </td>
+	</tr>
+</table>
+
+    </div>
+    
+    <div id="tableContainer" class="resultsBackGround">
+        <table class="resultsBorder resultsBackGround" cellspacing="0" cellpadding="0" rules="all" id="ctl00_catalogBody_updateMatches" style="border-color:Gray;border-width:1px;border-style:solid;border-collapse:collapse;">
+	<tr class="dataGridFixedHeader1" id="headerRow">
+		<th class="headerText ResultsHeaderTD resultsNOBorder" scope="col" id="header_C0" role="columnheader">
+                        &nbsp;
+                    </th><th class="headerText resultsHeaderpadding ResultsHeaderTD resultsBorderRight" scope="col" id="header_C1" role="columnheader" aria-label="Title Column. Activate to sort column ascending">
+                        <a onclick="return false;" id="ctl00_catalogBody_updateMatches_ctl02_titleHeaderLink" data-commandName="Title" href="javascript:__doPostBack(&#39;ctl00$catalogBody$updateMatches$ctl02$titleHeaderLink&#39;,&#39;&#39;)"><span>Title</span><img id="ctl00_catalogBody_updateMatches_ctl02_TitleSortArrow" class="hideSortArrow sortImagePadding" src="Images/button_SortAscendingArrow.gif" align="right" /></a>
+                    </th><th class="headerText resultsHeaderpadding ResultsHeaderTD resultsBorderRight" scope="col" id="header_C2" role="columnheader" aria-label="Products Column. Activate to sort column ascending">
+                        <a onclick="return false;" id="ctl00_catalogBody_updateMatches_ctl02_productsHeaderLink" data-commandName="Products" href="javascript:__doPostBack(&#39;ctl00$catalogBody$updateMatches$ctl02$productsHeaderLink&#39;,&#39;&#39;)"><span>Products</span><img id="ctl00_catalogBody_updateMatches_ctl02_ProductsSortArrow" class="hideSortArrow sortImagePadding" src="Images/button_SortAscendingArrow.gif" align="middle" /></a>
+                    </th><th class="headerText resultsHeaderpadding ResultsHeaderTD resultsBorderRight" scope="col" id="header_C3" role="columnheader" aria-label="Classification Column. Activate to sort column ascending">
+                        <a onclick="return false;" id="ctl00_catalogBody_updateMatches_ctl02_classificationComputedHeaderLink" data-commandName="ClassificationComputed" href="javascript:__doPostBack(&#39;ctl00$catalogBody$updateMatches$ctl02$classificationComputedHeaderLink&#39;,&#39;&#39;)"><span>Classification</span><img id="ctl00_catalogBody_updateMatches_ctl02_ClassificationComputedSortArrow" class="hideSortArrow sortImagePadding" src="Images/button_SortAscendingArrow.gif" align="right" /></a>
+                    </th><th class="headerText resultsHeaderpadding ResultsHeaderTD resultsBorderRight resultsDateWidth" scope="col" id="header_C4" role="columnheader" aria-label="Last Updated Column. Activate to sort column ascending">
+                        <a onclick="return false;" id="ctl00_catalogBody_updateMatches_ctl02_dateComputedHeaderLink" data-commandName="DateComputed" href="javascript:__doPostBack(&#39;ctl00$catalogBody$updateMatches$ctl02$dateComputedHeaderLink&#39;,&#39;&#39;)"><span>Last Updated</span><img id="ctl00_catalogBody_updateMatches_ctl02_DateComputedSortArrow" class="hideSortArrow sortImagePadding" src="Images/button_SortAscendingArrow.gif" align="right" /></a>
+                    </th><th class="headerText resultsHeaderpadding ResultsHeaderTD resultsBorderRight" scope="col" id="header_C5" role="columnheader" aria-label="Version Column. Activate to sort column ascending">
+                        <a onclick="return false;" id="ctl00_catalogBody_updateMatches_ctl02_driverVerVersionHeaderLink" data-commandName="DriverVerVersion" href="javascript:__doPostBack(&#39;ctl00$catalogBody$updateMatches$ctl02$driverVerVersionHeaderLink&#39;,&#39;&#39;)"><span>Version</span><img id="ctl00_catalogBody_updateMatches_ctl02_DriverVerVersionSortArrow" class="hideSortArrow sortImagePadding" src="Images/button_SortAscendingArrow.gif" align="right" /></a>
+                    </th><th class="headerText resultsHeaderpadding ResultsHeaderTD  resultsBorderRight" scope="col" id="header_C6" role="columnheader" aria-label="Size Column. Activate to sort column ascending">
+                        <a onclick="return false;" id="ctl00_catalogBody_updateMatches_ctl02_sizeInBytesHeaderLink" data-commandName="SizeInBytes" href="javascript:__doPostBack(&#39;ctl00$catalogBody$updateMatches$ctl02$sizeInBytesHeaderLink&#39;,&#39;&#39;)"><span>Size</span><img id="ctl00_catalogBody_updateMatches_ctl02_SizeInBytesSortArrow" class="hideSortArrow sortImagePadding" src="Images/button_SortAscendingArrow.gif" align="right" /></a>
+                    </th><th class="headerText ResultsHeaderTD resultsButtonWidth" scope="col" id="header_C7" role="columnheader" aria-label="Download Column">
+                    <HeaderTemplate>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </HeaderTemplate>
+                        <span>Download</span>
+                        </th>
+	</tr><tr id="a6317cda-a850-45f2-a302-a2ded3a980bc_R0" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="a6317cda-a850-45f2-a302-a2ded3a980bc_C0_R0">
+                    </td><td class="resultsbottomBorder resultspadding" id="a6317cda-a850-45f2-a302-a2ded3a980bc_C1_R0">
+                        <a id='a6317cda-a850-45f2-a302-a2ded3a980bc_link' href= "javascript:void(0);" onclick='goToDetails("a6317cda-a850-45f2-a302-a2ded3a980bc");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.30.50.508)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="a6317cda-a850-45f2-a302-a2ded3a980bc_C2_R0">
+                        Windows 11 Client,  version 24H2 and later,  Servicing Drivers, Windows 11 Client,  version 24H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 24H2 and later,  Servicing Drivers, Windows 11 Client S,  version 24H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="a6317cda-a850-45f2-a302-a2ded3a980bc_C3_R0">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="a6317cda-a850-45f2-a302-a2ded3a980bc_C4_R0">
+                        5/7/2026
+                    </td><td class="resultsbottomBorder resultspadding" id="a6317cda-a850-45f2-a302-a2ded3a980bc_C5_R0">
+                        1125.30.50.508
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="a6317cda-a850-45f2-a302-a2ded3a980bc_C6_R0">
+                       <span id="a6317cda-a850-45f2-a302-a2ded3a980bc_size">320 KB</span> 
+                       <span class="noDisplay" id="a6317cda-a850-45f2-a302-a2ded3a980bc_originalSize">328320</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="a6317cda-a850-45f2-a302-a2ded3a980bc_C7_R0">
+                        
+                            <input id="a6317cda-a850-45f2-a302-a2ded3a980bc" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="dd312322-a58a-4484-8f73-9c880b395b1b_R1" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="dd312322-a58a-4484-8f73-9c880b395b1b_C0_R1">
+                    </td><td class="resultsbottomBorder resultspadding" id="dd312322-a58a-4484-8f73-9c880b395b1b_C1_R1">
+                        <a id='dd312322-a58a-4484-8f73-9c880b395b1b_link' href= "javascript:void(0);" onclick='goToDetails("dd312322-a58a-4484-8f73-9c880b395b1b");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.30.508.2026)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="dd312322-a58a-4484-8f73-9c880b395b1b_C2_R1">
+                        Windows 11 Client,  version 24H2 and later,  Servicing Drivers, Windows 11 Client S,  version 24H2 and later,  Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="dd312322-a58a-4484-8f73-9c880b395b1b_C3_R1">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="dd312322-a58a-4484-8f73-9c880b395b1b_C4_R1">
+                        5/7/2026
+                    </td><td class="resultsbottomBorder resultspadding" id="dd312322-a58a-4484-8f73-9c880b395b1b_C5_R1">
+                        1125.30.508.2026
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="dd312322-a58a-4484-8f73-9c880b395b1b_C6_R1">
+                       <span id="dd312322-a58a-4484-8f73-9c880b395b1b_size">320 KB</span> 
+                       <span class="noDisplay" id="dd312322-a58a-4484-8f73-9c880b395b1b_originalSize">328152</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="dd312322-a58a-4484-8f73-9c880b395b1b_C7_R1">
+                        
+                            <input id="dd312322-a58a-4484-8f73-9c880b395b1b" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="0767b4ee-10fb-40ed-b500-6bafbc8e1b1d_R2" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="0767b4ee-10fb-40ed-b500-6bafbc8e1b1d_C0_R2">
+                    </td><td class="resultsbottomBorder resultspadding" id="0767b4ee-10fb-40ed-b500-6bafbc8e1b1d_C1_R2">
+                        <a id='0767b4ee-10fb-40ed-b500-6bafbc8e1b1d_link' href= "javascript:void(0);" onclick='goToDetails("0767b4ee-10fb-40ed-b500-6bafbc8e1b1d");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.30.50.508)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="0767b4ee-10fb-40ed-b500-6bafbc8e1b1d_C2_R2">
+                        Windows 11 Client,  version 22H2 and later,  Servicing Drivers, Windows 11 Client,  version 22H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 22H2 and later,  Servicing Drivers, Windows 11 Client S,  version 22H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="0767b4ee-10fb-40ed-b500-6bafbc8e1b1d_C3_R2">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="0767b4ee-10fb-40ed-b500-6bafbc8e1b1d_C4_R2">
+                        5/7/2026
+                    </td><td class="resultsbottomBorder resultspadding" id="0767b4ee-10fb-40ed-b500-6bafbc8e1b1d_C5_R2">
+                        1125.30.50.508
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="0767b4ee-10fb-40ed-b500-6bafbc8e1b1d_C6_R2">
+                       <span id="0767b4ee-10fb-40ed-b500-6bafbc8e1b1d_size">320 KB</span> 
+                       <span class="noDisplay" id="0767b4ee-10fb-40ed-b500-6bafbc8e1b1d_originalSize">328320</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="0767b4ee-10fb-40ed-b500-6bafbc8e1b1d_C7_R2">
+                        
+                            <input id="0767b4ee-10fb-40ed-b500-6bafbc8e1b1d" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="567d5120-eec1-4211-b8bf-4a5edd89f125_R3" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="567d5120-eec1-4211-b8bf-4a5edd89f125_C0_R3">
+                    </td><td class="resultsbottomBorder resultspadding" id="567d5120-eec1-4211-b8bf-4a5edd89f125_C1_R3">
+                        <a id='567d5120-eec1-4211-b8bf-4a5edd89f125_link' href= "javascript:void(0);" onclick='goToDetails("567d5120-eec1-4211-b8bf-4a5edd89f125");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.30.50.508)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="567d5120-eec1-4211-b8bf-4a5edd89f125_C2_R3">
+                        Windows 11 Client,  version 25H2 and later,  Servicing Drivers, Windows 11 Client,  version 25H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 25H2 and later,  Servicing Drivers, Windows 11 Client S,  version 25H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="567d5120-eec1-4211-b8bf-4a5edd89f125_C3_R3">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="567d5120-eec1-4211-b8bf-4a5edd89f125_C4_R3">
+                        5/7/2026
+                    </td><td class="resultsbottomBorder resultspadding" id="567d5120-eec1-4211-b8bf-4a5edd89f125_C5_R3">
+                        1125.30.50.508
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="567d5120-eec1-4211-b8bf-4a5edd89f125_C6_R3">
+                       <span id="567d5120-eec1-4211-b8bf-4a5edd89f125_size">320 KB</span> 
+                       <span class="noDisplay" id="567d5120-eec1-4211-b8bf-4a5edd89f125_originalSize">328320</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="567d5120-eec1-4211-b8bf-4a5edd89f125_C7_R3">
+                        
+                            <input id="567d5120-eec1-4211-b8bf-4a5edd89f125" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="d1f86ed3-235a-49fb-81e7-3ad974af56a2_R4" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="d1f86ed3-235a-49fb-81e7-3ad974af56a2_C0_R4">
+                    </td><td class="resultsbottomBorder resultspadding" id="d1f86ed3-235a-49fb-81e7-3ad974af56a2_C1_R4">
+                        <a id='d1f86ed3-235a-49fb-81e7-3ad974af56a2_link' href= "javascript:void(0);" onclick='goToDetails("d1f86ed3-235a-49fb-81e7-3ad974af56a2");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.30.508.2026)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="d1f86ed3-235a-49fb-81e7-3ad974af56a2_C2_R4">
+                        Windows 11 Client,  version 22H2 and later,  Servicing Drivers, Windows 11 Client S,  version 22H2 and later,  Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="d1f86ed3-235a-49fb-81e7-3ad974af56a2_C3_R4">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="d1f86ed3-235a-49fb-81e7-3ad974af56a2_C4_R4">
+                        5/7/2026
+                    </td><td class="resultsbottomBorder resultspadding" id="d1f86ed3-235a-49fb-81e7-3ad974af56a2_C5_R4">
+                        1125.30.508.2026
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="d1f86ed3-235a-49fb-81e7-3ad974af56a2_C6_R4">
+                       <span id="d1f86ed3-235a-49fb-81e7-3ad974af56a2_size">320 KB</span> 
+                       <span class="noDisplay" id="d1f86ed3-235a-49fb-81e7-3ad974af56a2_originalSize">328152</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="d1f86ed3-235a-49fb-81e7-3ad974af56a2_C7_R4">
+                        
+                            <input id="d1f86ed3-235a-49fb-81e7-3ad974af56a2" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="26a9db6a-3097-42ed-ac0b-57ecb3ba5c57_R5" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="26a9db6a-3097-42ed-ac0b-57ecb3ba5c57_C0_R5">
+                    </td><td class="resultsbottomBorder resultspadding" id="26a9db6a-3097-42ed-ac0b-57ecb3ba5c57_C1_R5">
+                        <a id='26a9db6a-3097-42ed-ac0b-57ecb3ba5c57_link' href= "javascript:void(0);" onclick='goToDetails("26a9db6a-3097-42ed-ac0b-57ecb3ba5c57");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.30.508.2026)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="26a9db6a-3097-42ed-ac0b-57ecb3ba5c57_C2_R5">
+                        Windows 11 Client,  version 25H2 and later,  Servicing Drivers, Windows 11 Client S,  version 25H2 and later,  Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="26a9db6a-3097-42ed-ac0b-57ecb3ba5c57_C3_R5">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="26a9db6a-3097-42ed-ac0b-57ecb3ba5c57_C4_R5">
+                        5/7/2026
+                    </td><td class="resultsbottomBorder resultspadding" id="26a9db6a-3097-42ed-ac0b-57ecb3ba5c57_C5_R5">
+                        1125.30.508.2026
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="26a9db6a-3097-42ed-ac0b-57ecb3ba5c57_C6_R5">
+                       <span id="26a9db6a-3097-42ed-ac0b-57ecb3ba5c57_size">320 KB</span> 
+                       <span class="noDisplay" id="26a9db6a-3097-42ed-ac0b-57ecb3ba5c57_originalSize">328152</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="26a9db6a-3097-42ed-ac0b-57ecb3ba5c57_C7_R5">
+                        
+                            <input id="26a9db6a-3097-42ed-ac0b-57ecb3ba5c57" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="10849254-ba5b-4ba3-98be-299eef6fe298_R6" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="10849254-ba5b-4ba3-98be-299eef6fe298_C0_R6">
+                    </td><td class="resultsbottomBorder resultspadding" id="10849254-ba5b-4ba3-98be-299eef6fe298_C1_R6">
+                        <a id='10849254-ba5b-4ba3-98be-299eef6fe298_link' href= "javascript:void(0);" onclick='goToDetails("10849254-ba5b-4ba3-98be-299eef6fe298");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.29.50.202)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="10849254-ba5b-4ba3-98be-299eef6fe298_C2_R6">
+                        Windows 11 Client,  version 22H2 and later,  Servicing Drivers, Windows 11 Client,  version 22H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 22H2 and later,  Servicing Drivers, Windows 11 Client S,  version 22H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="10849254-ba5b-4ba3-98be-299eef6fe298_C3_R6">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="10849254-ba5b-4ba3-98be-299eef6fe298_C4_R6">
+                        2/1/2026
+                    </td><td class="resultsbottomBorder resultspadding" id="10849254-ba5b-4ba3-98be-299eef6fe298_C5_R6">
+                        1125.29.50.202
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="10849254-ba5b-4ba3-98be-299eef6fe298_C6_R6">
+                       <span id="10849254-ba5b-4ba3-98be-299eef6fe298_size">318 KB</span> 
+                       <span class="noDisplay" id="10849254-ba5b-4ba3-98be-299eef6fe298_originalSize">326574</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="10849254-ba5b-4ba3-98be-299eef6fe298_C7_R6">
+                        
+                            <input id="10849254-ba5b-4ba3-98be-299eef6fe298" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="7d874c28-4440-4461-a273-1a26e40d4ce6_R7" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="7d874c28-4440-4461-a273-1a26e40d4ce6_C0_R7">
+                    </td><td class="resultsbottomBorder resultspadding" id="7d874c28-4440-4461-a273-1a26e40d4ce6_C1_R7">
+                        <a id='7d874c28-4440-4461-a273-1a26e40d4ce6_link' href= "javascript:void(0);" onclick='goToDetails("7d874c28-4440-4461-a273-1a26e40d4ce6");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.29.50.202)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="7d874c28-4440-4461-a273-1a26e40d4ce6_C2_R7">
+                        Windows 11 Client,  version 25H2 and later,  Servicing Drivers, Windows 11 Client,  version 25H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 25H2 and later,  Servicing Drivers, Windows 11 Client S,  version 25H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="7d874c28-4440-4461-a273-1a26e40d4ce6_C3_R7">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="7d874c28-4440-4461-a273-1a26e40d4ce6_C4_R7">
+                        2/1/2026
+                    </td><td class="resultsbottomBorder resultspadding" id="7d874c28-4440-4461-a273-1a26e40d4ce6_C5_R7">
+                        1125.29.50.202
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="7d874c28-4440-4461-a273-1a26e40d4ce6_C6_R7">
+                       <span id="7d874c28-4440-4461-a273-1a26e40d4ce6_size">318 KB</span> 
+                       <span class="noDisplay" id="7d874c28-4440-4461-a273-1a26e40d4ce6_originalSize">326128</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="7d874c28-4440-4461-a273-1a26e40d4ce6_C7_R7">
+                        
+                            <input id="7d874c28-4440-4461-a273-1a26e40d4ce6" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="b1ac12a4-01df-485f-8ba8-cd355d82a9b1_R8" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="b1ac12a4-01df-485f-8ba8-cd355d82a9b1_C0_R8">
+                    </td><td class="resultsbottomBorder resultspadding" id="b1ac12a4-01df-485f-8ba8-cd355d82a9b1_C1_R8">
+                        <a id='b1ac12a4-01df-485f-8ba8-cd355d82a9b1_link' href= "javascript:void(0);" onclick='goToDetails("b1ac12a4-01df-485f-8ba8-cd355d82a9b1");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.29.50.202)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="b1ac12a4-01df-485f-8ba8-cd355d82a9b1_C2_R8">
+                        Windows 11 Client,  version 24H2 and later,  Servicing Drivers, Windows 11 Client,  version 24H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 24H2 and later,  Servicing Drivers, Windows 11 Client S,  version 24H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="b1ac12a4-01df-485f-8ba8-cd355d82a9b1_C3_R8">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="b1ac12a4-01df-485f-8ba8-cd355d82a9b1_C4_R8">
+                        2/1/2026
+                    </td><td class="resultsbottomBorder resultspadding" id="b1ac12a4-01df-485f-8ba8-cd355d82a9b1_C5_R8">
+                        1125.29.50.202
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="b1ac12a4-01df-485f-8ba8-cd355d82a9b1_C6_R8">
+                       <span id="b1ac12a4-01df-485f-8ba8-cd355d82a9b1_size">318 KB</span> 
+                       <span class="noDisplay" id="b1ac12a4-01df-485f-8ba8-cd355d82a9b1_originalSize">326574</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="b1ac12a4-01df-485f-8ba8-cd355d82a9b1_C7_R8">
+                        
+                            <input id="b1ac12a4-01df-485f-8ba8-cd355d82a9b1" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="46901f3c-13ff-4b60-9257-bc643adcc49c_R9" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="46901f3c-13ff-4b60-9257-bc643adcc49c_C0_R9">
+                    </td><td class="resultsbottomBorder resultspadding" id="46901f3c-13ff-4b60-9257-bc643adcc49c_C1_R9">
+                        <a id='46901f3c-13ff-4b60-9257-bc643adcc49c_link' href= "javascript:void(0);" onclick='goToDetails("46901f3c-13ff-4b60-9257-bc643adcc49c");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.29.50.202)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="46901f3c-13ff-4b60-9257-bc643adcc49c_C2_R9">
+                        Windows 11 Client,  version 24H2 and later,  Servicing Drivers, Windows 11 Client,  version 24H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 24H2 and later,  Servicing Drivers, Windows 11 Client S,  version 24H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="46901f3c-13ff-4b60-9257-bc643adcc49c_C3_R9">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="46901f3c-13ff-4b60-9257-bc643adcc49c_C4_R9">
+                        2/1/2026
+                    </td><td class="resultsbottomBorder resultspadding" id="46901f3c-13ff-4b60-9257-bc643adcc49c_C5_R9">
+                        1125.29.50.202
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="46901f3c-13ff-4b60-9257-bc643adcc49c_C6_R9">
+                       <span id="46901f3c-13ff-4b60-9257-bc643adcc49c_size">318 KB</span> 
+                       <span class="noDisplay" id="46901f3c-13ff-4b60-9257-bc643adcc49c_originalSize">326128</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="46901f3c-13ff-4b60-9257-bc643adcc49c_C7_R9">
+                        
+                            <input id="46901f3c-13ff-4b60-9257-bc643adcc49c" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="805f348a-c108-42b7-b02b-60c65eb12567_R10" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="805f348a-c108-42b7-b02b-60c65eb12567_C0_R10">
+                    </td><td class="resultsbottomBorder resultspadding" id="805f348a-c108-42b7-b02b-60c65eb12567_C1_R10">
+                        <a id='805f348a-c108-42b7-b02b-60c65eb12567_link' href= "javascript:void(0);" onclick='goToDetails("805f348a-c108-42b7-b02b-60c65eb12567");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.29.50.202)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="805f348a-c108-42b7-b02b-60c65eb12567_C2_R10">
+                        Windows 11 Client,  version 22H2 and later,  Servicing Drivers, Windows 11 Client,  version 22H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 22H2 and later,  Servicing Drivers, Windows 11 Client S,  version 22H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="805f348a-c108-42b7-b02b-60c65eb12567_C3_R10">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="805f348a-c108-42b7-b02b-60c65eb12567_C4_R10">
+                        2/1/2026
+                    </td><td class="resultsbottomBorder resultspadding" id="805f348a-c108-42b7-b02b-60c65eb12567_C5_R10">
+                        1125.29.50.202
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="805f348a-c108-42b7-b02b-60c65eb12567_C6_R10">
+                       <span id="805f348a-c108-42b7-b02b-60c65eb12567_size">318 KB</span> 
+                       <span class="noDisplay" id="805f348a-c108-42b7-b02b-60c65eb12567_originalSize">326128</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="805f348a-c108-42b7-b02b-60c65eb12567_C7_R10">
+                        
+                            <input id="805f348a-c108-42b7-b02b-60c65eb12567" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="a60dba40-158d-4cc8-abbe-4ec9770293b3_R11" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="a60dba40-158d-4cc8-abbe-4ec9770293b3_C0_R11">
+                    </td><td class="resultsbottomBorder resultspadding" id="a60dba40-158d-4cc8-abbe-4ec9770293b3_C1_R11">
+                        <a id='a60dba40-158d-4cc8-abbe-4ec9770293b3_link' href= "javascript:void(0);" onclick='goToDetails("a60dba40-158d-4cc8-abbe-4ec9770293b3");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.29.50.202)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="a60dba40-158d-4cc8-abbe-4ec9770293b3_C2_R11">
+                        Windows 11 Client,  version 25H2 and later,  Servicing Drivers, Windows 11 Client,  version 25H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 25H2 and later,  Servicing Drivers, Windows 11 Client S,  version 25H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="a60dba40-158d-4cc8-abbe-4ec9770293b3_C3_R11">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="a60dba40-158d-4cc8-abbe-4ec9770293b3_C4_R11">
+                        2/1/2026
+                    </td><td class="resultsbottomBorder resultspadding" id="a60dba40-158d-4cc8-abbe-4ec9770293b3_C5_R11">
+                        1125.29.50.202
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="a60dba40-158d-4cc8-abbe-4ec9770293b3_C6_R11">
+                       <span id="a60dba40-158d-4cc8-abbe-4ec9770293b3_size">318 KB</span> 
+                       <span class="noDisplay" id="a60dba40-158d-4cc8-abbe-4ec9770293b3_originalSize">326574</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="a60dba40-158d-4cc8-abbe-4ec9770293b3_C7_R11">
+                        
+                            <input id="a60dba40-158d-4cc8-abbe-4ec9770293b3" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="998dadeb-7a17-4f16-87c5-936e41b3a032_R12" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="998dadeb-7a17-4f16-87c5-936e41b3a032_C0_R12">
+                    </td><td class="resultsbottomBorder resultspadding" id="998dadeb-7a17-4f16-87c5-936e41b3a032_C1_R12">
+                        <a id='998dadeb-7a17-4f16-87c5-936e41b3a032_link' href= "javascript:void(0);" onclick='goToDetails("998dadeb-7a17-4f16-87c5-936e41b3a032");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.28.50.1224)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="998dadeb-7a17-4f16-87c5-936e41b3a032_C2_R12">
+                        Windows 11 Client,  version 24H2 and later,  Servicing Drivers, Windows 11 Client,  version 24H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 24H2 and later,  Servicing Drivers, Windows 11 Client S,  version 24H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="998dadeb-7a17-4f16-87c5-936e41b3a032_C3_R12">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="998dadeb-7a17-4f16-87c5-936e41b3a032_C4_R12">
+                        12/23/2025
+                    </td><td class="resultsbottomBorder resultspadding" id="998dadeb-7a17-4f16-87c5-936e41b3a032_C5_R12">
+                        1125.28.50.1224
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="998dadeb-7a17-4f16-87c5-936e41b3a032_C6_R12">
+                       <span id="998dadeb-7a17-4f16-87c5-936e41b3a032_size">317 KB</span> 
+                       <span class="noDisplay" id="998dadeb-7a17-4f16-87c5-936e41b3a032_originalSize">325260</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="998dadeb-7a17-4f16-87c5-936e41b3a032_C7_R12">
+                        
+                            <input id="998dadeb-7a17-4f16-87c5-936e41b3a032" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="e071ebf6-c849-40d7-bd18-cd643347f055_R13" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="e071ebf6-c849-40d7-bd18-cd643347f055_C0_R13">
+                    </td><td class="resultsbottomBorder resultspadding" id="e071ebf6-c849-40d7-bd18-cd643347f055_C1_R13">
+                        <a id='e071ebf6-c849-40d7-bd18-cd643347f055_link' href= "javascript:void(0);" onclick='goToDetails("e071ebf6-c849-40d7-bd18-cd643347f055");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.28.50.1224)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="e071ebf6-c849-40d7-bd18-cd643347f055_C2_R13">
+                        Windows 11 Client,  version 25H2 and later,  Servicing Drivers, Windows 11 Client,  version 25H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 25H2 and later,  Servicing Drivers, Windows 11 Client S,  version 25H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="e071ebf6-c849-40d7-bd18-cd643347f055_C3_R13">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="e071ebf6-c849-40d7-bd18-cd643347f055_C4_R13">
+                        12/23/2025
+                    </td><td class="resultsbottomBorder resultspadding" id="e071ebf6-c849-40d7-bd18-cd643347f055_C5_R13">
+                        1125.28.50.1224
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="e071ebf6-c849-40d7-bd18-cd643347f055_C6_R13">
+                       <span id="e071ebf6-c849-40d7-bd18-cd643347f055_size">317 KB</span> 
+                       <span class="noDisplay" id="e071ebf6-c849-40d7-bd18-cd643347f055_originalSize">325260</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="e071ebf6-c849-40d7-bd18-cd643347f055_C7_R13">
+                        
+                            <input id="e071ebf6-c849-40d7-bd18-cd643347f055" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="a8759fec-f2e9-4010-b00e-1326ee10bd77_R14" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="a8759fec-f2e9-4010-b00e-1326ee10bd77_C0_R14">
+                    </td><td class="resultsbottomBorder resultspadding" id="a8759fec-f2e9-4010-b00e-1326ee10bd77_C1_R14">
+                        <a id='a8759fec-f2e9-4010-b00e-1326ee10bd77_link' href= "javascript:void(0);" onclick='goToDetails("a8759fec-f2e9-4010-b00e-1326ee10bd77");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.28.1224.2025)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="a8759fec-f2e9-4010-b00e-1326ee10bd77_C2_R14">
+                        Windows 11 Client,  version 25H2 and later,  Servicing Drivers, Windows 11 Client,  version 25H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 25H2 and later,  Servicing Drivers, Windows 11 Client S,  version 25H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="a8759fec-f2e9-4010-b00e-1326ee10bd77_C3_R14">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="a8759fec-f2e9-4010-b00e-1326ee10bd77_C4_R14">
+                        12/23/2025
+                    </td><td class="resultsbottomBorder resultspadding" id="a8759fec-f2e9-4010-b00e-1326ee10bd77_C5_R14">
+                        1125.28.1224.2025
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="a8759fec-f2e9-4010-b00e-1326ee10bd77_C6_R14">
+                       <span id="a8759fec-f2e9-4010-b00e-1326ee10bd77_size">317 KB</span> 
+                       <span class="noDisplay" id="a8759fec-f2e9-4010-b00e-1326ee10bd77_originalSize">324696</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="a8759fec-f2e9-4010-b00e-1326ee10bd77_C7_R14">
+                        
+                            <input id="a8759fec-f2e9-4010-b00e-1326ee10bd77" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="ec85386f-8efb-4260-a264-cca699df1793_R15" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="ec85386f-8efb-4260-a264-cca699df1793_C0_R15">
+                    </td><td class="resultsbottomBorder resultspadding" id="ec85386f-8efb-4260-a264-cca699df1793_C1_R15">
+                        <a id='ec85386f-8efb-4260-a264-cca699df1793_link' href= "javascript:void(0);" onclick='goToDetails("ec85386f-8efb-4260-a264-cca699df1793");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.28.1224.2025)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="ec85386f-8efb-4260-a264-cca699df1793_C2_R15">
+                        Windows 11 Client,  version 24H2 and later,  Servicing Drivers, Windows 11 Client,  version 24H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 24H2 and later,  Servicing Drivers, Windows 11 Client S,  version 24H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="ec85386f-8efb-4260-a264-cca699df1793_C3_R15">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="ec85386f-8efb-4260-a264-cca699df1793_C4_R15">
+                        12/23/2025
+                    </td><td class="resultsbottomBorder resultspadding" id="ec85386f-8efb-4260-a264-cca699df1793_C5_R15">
+                        1125.28.1224.2025
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="ec85386f-8efb-4260-a264-cca699df1793_C6_R15">
+                       <span id="ec85386f-8efb-4260-a264-cca699df1793_size">317 KB</span> 
+                       <span class="noDisplay" id="ec85386f-8efb-4260-a264-cca699df1793_originalSize">324696</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="ec85386f-8efb-4260-a264-cca699df1793_C7_R15">
+                        
+                            <input id="ec85386f-8efb-4260-a264-cca699df1793" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="ef3c4edb-315c-42d0-8cd2-9906ea486aae_R16" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="ef3c4edb-315c-42d0-8cd2-9906ea486aae_C0_R16">
+                    </td><td class="resultsbottomBorder resultspadding" id="ef3c4edb-315c-42d0-8cd2-9906ea486aae_C1_R16">
+                        <a id='ef3c4edb-315c-42d0-8cd2-9906ea486aae_link' href= "javascript:void(0);" onclick='goToDetails("ef3c4edb-315c-42d0-8cd2-9906ea486aae");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.28.1224.2025)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="ef3c4edb-315c-42d0-8cd2-9906ea486aae_C2_R16">
+                        Windows 11 Client,  version 22H2 and later,  Servicing Drivers, Windows 11 Client,  version 22H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 22H2 and later,  Servicing Drivers, Windows 11 Client S,  version 22H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="ef3c4edb-315c-42d0-8cd2-9906ea486aae_C3_R16">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="ef3c4edb-315c-42d0-8cd2-9906ea486aae_C4_R16">
+                        12/23/2025
+                    </td><td class="resultsbottomBorder resultspadding" id="ef3c4edb-315c-42d0-8cd2-9906ea486aae_C5_R16">
+                        1125.28.1224.2025
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="ef3c4edb-315c-42d0-8cd2-9906ea486aae_C6_R16">
+                       <span id="ef3c4edb-315c-42d0-8cd2-9906ea486aae_size">317 KB</span> 
+                       <span class="noDisplay" id="ef3c4edb-315c-42d0-8cd2-9906ea486aae_originalSize">324696</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="ef3c4edb-315c-42d0-8cd2-9906ea486aae_C7_R16">
+                        
+                            <input id="ef3c4edb-315c-42d0-8cd2-9906ea486aae" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="dfa7418a-d39e-44a1-b546-43bdac58173f_R17" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="dfa7418a-d39e-44a1-b546-43bdac58173f_C0_R17">
+                    </td><td class="resultsbottomBorder resultspadding" id="dfa7418a-d39e-44a1-b546-43bdac58173f_C1_R17">
+                        <a id='dfa7418a-d39e-44a1-b546-43bdac58173f_link' href= "javascript:void(0);" onclick='goToDetails("dfa7418a-d39e-44a1-b546-43bdac58173f");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.28.50.1224)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="dfa7418a-d39e-44a1-b546-43bdac58173f_C2_R17">
+                        Windows 11 Client,  version 22H2 and later,  Servicing Drivers, Windows 11 Client,  version 22H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 22H2 and later,  Servicing Drivers, Windows 11 Client S,  version 22H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="dfa7418a-d39e-44a1-b546-43bdac58173f_C3_R17">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="dfa7418a-d39e-44a1-b546-43bdac58173f_C4_R17">
+                        12/23/2025
+                    </td><td class="resultsbottomBorder resultspadding" id="dfa7418a-d39e-44a1-b546-43bdac58173f_C5_R17">
+                        1125.28.50.1224
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="dfa7418a-d39e-44a1-b546-43bdac58173f_C6_R17">
+                       <span id="dfa7418a-d39e-44a1-b546-43bdac58173f_size">317 KB</span> 
+                       <span class="noDisplay" id="dfa7418a-d39e-44a1-b546-43bdac58173f_originalSize">325260</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="dfa7418a-d39e-44a1-b546-43bdac58173f_C7_R17">
+                        
+                            <input id="dfa7418a-d39e-44a1-b546-43bdac58173f" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="64ad6661-264d-4583-8bae-1d4602accbad_R18" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="64ad6661-264d-4583-8bae-1d4602accbad_C0_R18">
+                    </td><td class="resultsbottomBorder resultspadding" id="64ad6661-264d-4583-8bae-1d4602accbad_C1_R18">
+                        <a id='64ad6661-264d-4583-8bae-1d4602accbad_link' href= "javascript:void(0);" onclick='goToDetails("64ad6661-264d-4583-8bae-1d4602accbad");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.28.50.1224)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="64ad6661-264d-4583-8bae-1d4602accbad_C2_R18">
+                        Windows 11 Client,  version 24H2 and later,  Servicing Drivers, Windows 11 Client,  version 24H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 24H2 and later,  Servicing Drivers, Windows 11 Client S,  version 24H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="64ad6661-264d-4583-8bae-1d4602accbad_C3_R18">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="64ad6661-264d-4583-8bae-1d4602accbad_C4_R18">
+                        12/23/2025
+                    </td><td class="resultsbottomBorder resultspadding" id="64ad6661-264d-4583-8bae-1d4602accbad_C5_R18">
+                        1125.28.50.1224
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="64ad6661-264d-4583-8bae-1d4602accbad_C6_R18">
+                       <span id="64ad6661-264d-4583-8bae-1d4602accbad_size">315 KB</span> 
+                       <span class="noDisplay" id="64ad6661-264d-4583-8bae-1d4602accbad_originalSize">322764</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="64ad6661-264d-4583-8bae-1d4602accbad_C7_R18">
+                        
+                            <input id="64ad6661-264d-4583-8bae-1d4602accbad" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="35f9296d-8b91-48ba-8de8-06c16b86fe70_R19" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="35f9296d-8b91-48ba-8de8-06c16b86fe70_C0_R19">
+                    </td><td class="resultsbottomBorder resultspadding" id="35f9296d-8b91-48ba-8de8-06c16b86fe70_C1_R19">
+                        <a id='35f9296d-8b91-48ba-8de8-06c16b86fe70_link' href= "javascript:void(0);" onclick='goToDetails("35f9296d-8b91-48ba-8de8-06c16b86fe70");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.28.50.1224)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="35f9296d-8b91-48ba-8de8-06c16b86fe70_C2_R19">
+                        Windows 11 Client,  version 22H2 and later,  Servicing Drivers, Windows 11 Client,  version 22H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 22H2 and later,  Servicing Drivers, Windows 11 Client S,  version 22H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="35f9296d-8b91-48ba-8de8-06c16b86fe70_C3_R19">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="35f9296d-8b91-48ba-8de8-06c16b86fe70_C4_R19">
+                        12/23/2025
+                    </td><td class="resultsbottomBorder resultspadding" id="35f9296d-8b91-48ba-8de8-06c16b86fe70_C5_R19">
+                        1125.28.50.1224
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="35f9296d-8b91-48ba-8de8-06c16b86fe70_C6_R19">
+                       <span id="35f9296d-8b91-48ba-8de8-06c16b86fe70_size">315 KB</span> 
+                       <span class="noDisplay" id="35f9296d-8b91-48ba-8de8-06c16b86fe70_originalSize">322764</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="35f9296d-8b91-48ba-8de8-06c16b86fe70_C7_R19">
+                        
+                            <input id="35f9296d-8b91-48ba-8de8-06c16b86fe70" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="0f65f1f9-d4b3-4ba7-9348-c983db02be75_R20" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="0f65f1f9-d4b3-4ba7-9348-c983db02be75_C0_R20">
+                    </td><td class="resultsbottomBorder resultspadding" id="0f65f1f9-d4b3-4ba7-9348-c983db02be75_C1_R20">
+                        <a id='0f65f1f9-d4b3-4ba7-9348-c983db02be75_link' href= "javascript:void(0);" onclick='goToDetails("0f65f1f9-d4b3-4ba7-9348-c983db02be75");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (1125.28.50.1224)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="0f65f1f9-d4b3-4ba7-9348-c983db02be75_C2_R20">
+                        Windows 11 Client,  version 25H2 and later,  Servicing Drivers, Windows 11 Client,  version 25H2 and later,  Upgrade &amp; Servicing Drivers, Windows 11 Client S,  version 25H2 and later,  Servicing Drivers, Windows 11 Client S,  version 25H2 and later,  Upgrade &amp; Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="0f65f1f9-d4b3-4ba7-9348-c983db02be75_C3_R20">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="0f65f1f9-d4b3-4ba7-9348-c983db02be75_C4_R20">
+                        12/23/2025
+                    </td><td class="resultsbottomBorder resultspadding" id="0f65f1f9-d4b3-4ba7-9348-c983db02be75_C5_R20">
+                        1125.28.50.1224
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="0f65f1f9-d4b3-4ba7-9348-c983db02be75_C6_R20">
+                       <span id="0f65f1f9-d4b3-4ba7-9348-c983db02be75_size">315 KB</span> 
+                       <span class="noDisplay" id="0f65f1f9-d4b3-4ba7-9348-c983db02be75_originalSize">322764</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="0f65f1f9-d4b3-4ba7-9348-c983db02be75_C7_R20">
+                        
+                            <input id="0f65f1f9-d4b3-4ba7-9348-c983db02be75" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="e289a3b2-fa24-4bc7-b82d-b29b0dc30160_R21" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="e289a3b2-fa24-4bc7-b82d-b29b0dc30160_C0_R21">
+                    </td><td class="resultsbottomBorder resultspadding" id="e289a3b2-fa24-4bc7-b82d-b29b0dc30160_C1_R21">
+                        <a id='e289a3b2-fa24-4bc7-b82d-b29b0dc30160_link' href= "javascript:void(0);" onclick='goToDetails("e289a3b2-fa24-4bc7-b82d-b29b0dc30160");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (10.79.1003.2025)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="e289a3b2-fa24-4bc7-b82d-b29b0dc30160_C2_R21">
+                        Windows 10,  version 1809 and later,  Servicing Drivers, Windows 10 S,  version 1809 and later,  Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="e289a3b2-fa24-4bc7-b82d-b29b0dc30160_C3_R21">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="e289a3b2-fa24-4bc7-b82d-b29b0dc30160_C4_R21">
+                        10/2/2025
+                    </td><td class="resultsbottomBorder resultspadding" id="e289a3b2-fa24-4bc7-b82d-b29b0dc30160_C5_R21">
+                        10.79.1003.2025
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="e289a3b2-fa24-4bc7-b82d-b29b0dc30160_C6_R21">
+                       <span id="e289a3b2-fa24-4bc7-b82d-b29b0dc30160_size">587 KB</span> 
+                       <span class="noDisplay" id="e289a3b2-fa24-4bc7-b82d-b29b0dc30160_originalSize">601479</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="e289a3b2-fa24-4bc7-b82d-b29b0dc30160_C7_R21">
+                        
+                            <input id="e289a3b2-fa24-4bc7-b82d-b29b0dc30160" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="7c552079-d121-41f1-b285-7eda3b078a40_R22" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="7c552079-d121-41f1-b285-7eda3b078a40_C0_R22">
+                    </td><td class="resultsbottomBorder resultspadding" id="7c552079-d121-41f1-b285-7eda3b078a40_C1_R22">
+                        <a id='7c552079-d121-41f1-b285-7eda3b078a40_link' href= "javascript:void(0);" onclick='goToDetails("7c552079-d121-41f1-b285-7eda3b078a40");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (10.79.1003.2025)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="7c552079-d121-41f1-b285-7eda3b078a40_C2_R22">
+                        Windows 10,  Vibranium and later,  Servicing Drivers, Windows 10 S,  Vibranium and later,  Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="7c552079-d121-41f1-b285-7eda3b078a40_C3_R22">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="7c552079-d121-41f1-b285-7eda3b078a40_C4_R22">
+                        10/2/2025
+                    </td><td class="resultsbottomBorder resultspadding" id="7c552079-d121-41f1-b285-7eda3b078a40_C5_R22">
+                        10.79.1003.2025
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="7c552079-d121-41f1-b285-7eda3b078a40_C6_R22">
+                       <span id="7c552079-d121-41f1-b285-7eda3b078a40_size">587 KB</span> 
+                       <span class="noDisplay" id="7c552079-d121-41f1-b285-7eda3b078a40_originalSize">601479</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="7c552079-d121-41f1-b285-7eda3b078a40_C7_R22">
+                        
+                            <input id="7c552079-d121-41f1-b285-7eda3b078a40" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="2d3f6e22-76df-4ff5-9781-e241bee0fffd_R23" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="2d3f6e22-76df-4ff5-9781-e241bee0fffd_C0_R23">
+                    </td><td class="resultsbottomBorder resultspadding" id="2d3f6e22-76df-4ff5-9781-e241bee0fffd_C1_R23">
+                        <a id='2d3f6e22-76df-4ff5-9781-e241bee0fffd_link' href= "javascript:void(0);" onclick='goToDetails("2d3f6e22-76df-4ff5-9781-e241bee0fffd");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (10.79.1003.2025)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="2d3f6e22-76df-4ff5-9781-e241bee0fffd_C2_R23">
+                        Windows 11 Client,  version 22H2 and later,  Servicing Drivers, Windows 11 Client S,  version 22H2 and later,  Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="2d3f6e22-76df-4ff5-9781-e241bee0fffd_C3_R23">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="2d3f6e22-76df-4ff5-9781-e241bee0fffd_C4_R23">
+                        10/2/2025
+                    </td><td class="resultsbottomBorder resultspadding" id="2d3f6e22-76df-4ff5-9781-e241bee0fffd_C5_R23">
+                        10.79.1003.2025
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="2d3f6e22-76df-4ff5-9781-e241bee0fffd_C6_R23">
+                       <span id="2d3f6e22-76df-4ff5-9781-e241bee0fffd_size">587 KB</span> 
+                       <span class="noDisplay" id="2d3f6e22-76df-4ff5-9781-e241bee0fffd_originalSize">601479</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="2d3f6e22-76df-4ff5-9781-e241bee0fffd_C7_R23">
+                        
+                            <input id="2d3f6e22-76df-4ff5-9781-e241bee0fffd" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr><tr id="6b6e710f-f83f-45b9-80be-214f8e846aab_R24" style="border-width:0px;">
+		<td class="resultsbottomBorder resultspadding resultsIconWidth " id="6b6e710f-f83f-45b9-80be-214f8e846aab_C0_R24">
+                    </td><td class="resultsbottomBorder resultspadding" id="6b6e710f-f83f-45b9-80be-214f8e846aab_C1_R24">
+                        <a id='6b6e710f-f83f-45b9-80be-214f8e846aab_link' href= "javascript:void(0);" onclick='goToDetails("6b6e710f-f83f-45b9-80be-214f8e846aab");' class="contentTextItemSpacerNoBreakLink">
+                            Realtek Net Driver Update (10.79.1003.2025)
+                        </a>
+                    </td><td class="resultsbottomBorder resultspadding" id="6b6e710f-f83f-45b9-80be-214f8e846aab_C2_R24">
+                        Windows 11 Client,  version 24H2 and later,  Servicing Drivers, Windows 11 Client S,  version 24H2 and later,  Servicing Drivers
+                    </td><td class="resultsbottomBorder resultspadding" id="6b6e710f-f83f-45b9-80be-214f8e846aab_C3_R24">
+                        Drivers (Networking)
+                    </td><td class="resultsbottomBorder resultspadding " id="6b6e710f-f83f-45b9-80be-214f8e846aab_C4_R24">
+                        10/2/2025
+                    </td><td class="resultsbottomBorder resultspadding" id="6b6e710f-f83f-45b9-80be-214f8e846aab_C5_R24">
+                        10.79.1003.2025
+                    </td><td class="resultsbottomBorder resultspadding resultsSizeWidth" id="6b6e710f-f83f-45b9-80be-214f8e846aab_C6_R24">
+                       <span id="6b6e710f-f83f-45b9-80be-214f8e846aab_size">587 KB</span> 
+                       <span class="noDisplay" id="6b6e710f-f83f-45b9-80be-214f8e846aab_originalSize">601479</span>
+                    </td><td class="resultsbottomBorder resultsButtonWidth" id="6b6e710f-f83f-45b9-80be-214f8e846aab_C7_R24">
+                        
+                            <input id="6b6e710f-f83f-45b9-80be-214f8e846aab" class="flatBlueButtonDownload focus-only" type="button" value='Download' />
+                        </td>
+	</tr>
+</table>
+    </div>
+    <div id="detailsPopup" class="poupInfoDiv">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td valign="top">
+                    <img src="Images/decor_BigInformation.gif" />
+                </td>
+                <td class="poupInfoText">
+                    <span id="ctl00_catalogBody_textDetailsPopupBlocked">If you have a pop-up blocker enabled, the Update Details window might not open. To open the Update Details window, configure your pop-blocker to allow pop-ups for this Web site.</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" valign="bottom" class="textAlignRight">
+                    <input type="button" onclick="detailsPopup.style.display='none';" class="flatBlueButton cancelButton "
+                        id="closeButton" value='Close' />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <span id="addButtonText" class="notVisible">Add</span>
+    <span id="addAllButtonText" class="notVisible">Add All</span>
+    <span id="removeButtonText" class="notVisible">Remove</span>
+    <span id="removeAllButtonText" class="notVisible">Remove All</span>
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td id="minWidthCell">
+                    <img src="Images/spacer.gif" alt="" class="browserWidthSpacer" />
+                </td>
+            </tr>
+            <tr> 
+                <td>           
+                    <div id="footerBox" role="contentinfo">
+                        <div id="innerFooterBox">
+                            <span id="copyrightText">&copy;
+                                2026
+                                <span id="ctl00_textCopyrightFooter">Microsoft Corporation. All Rights Reserved.</span><span class="footerDivider">|</span><a href="https://go.microsoft.com/fwlink/?LinkId=521839" id="privacyLinkBox" class="footerLink" ><span id="ctl00_privacyResource">privacy</span></a><span class="footerDivider">|</span><a href="https://go.microsoft.com/fwlink/?linkid=2259814" id="He" class="footerLink" target="health"><span id="ctl00_ConsumerHealthPrivacyResource">Consumer Health Privacy</span> </a><span class="footerDivider">|</span><a href="https://go.microsoft.com/fwlink/?linkid=9482" id="legalLinkBox" class="footerLink" target="legal"><span id="ctl00_legalResource">terms of use</span></a><span class="footerDivider">|</span><a href="Support.aspx" id="supportLinkBox" onclick="propogateBasketState('Support.aspx')" class="footerLink"><span id="ctl00_supportResource">help</span></a>
+                                <span class="footerDivider">|</span><a href="https://www.microsoft.com/fr-fr/accessibility/accessibility-statement" id="supportLinkBoxFrench" 
+                                    class="footerLink"><span id="ctl00_Resource1">Accessibilité</span>
+                                </a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        </div>
+        <input type="hidden" id="updateIDs" name="updateIDs" />
+        <input type="hidden" id="contentImport" name="contentImport" value=""/>
+        <input type="hidden" id="sku" name="sku" value="" />
+        <input type="hidden" id="serverName" name="serverName" value=""/>
+        <input type="hidden" id="ssl" name="ssl" value=""/>
+        <input type="hidden" id="portNumber" name="portNumber" value=""/>
+        <input type="hidden" id="version" name="version" value=""/>
+        <input type="hidden" id="protocol" name="protocol" value=""/>                         
+        </form>
+    </div>
+</body>
+</html>
